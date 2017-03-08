@@ -17,9 +17,9 @@ public class Controller {
         userauth.UserSignUp(usrName,thumbL,thumbW,indexL,indexW,middleL,middleW,ringL,ringW,pinkyL,pinkyW);
     }
     
-    public boolean signIn(String usrName){
+    public boolean signIn(String usrName,double fing1L,double fing1W,double fing2L, double fing2W, String fing1,String fing2){
         UserAuth userauth = new UserAuth();
-        return userauth.UserSignIn(usrName);
+        return userauth.UserSignIn(usrName,fing1L,fing1W,fing2L,fing2W,fing1,fing2);
     }
     
     
