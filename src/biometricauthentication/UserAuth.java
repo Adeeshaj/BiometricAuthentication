@@ -15,19 +15,20 @@ import java.util.List;
 public class UserAuth {
     private static User cacheUser;
     
-    public void UserSignUp(String usrName){
-        ArrayCls arr = new ArrayCls();
+    public void UserSignUp(String usrName,double thumbL,double thumbW,double indexL,double indexW,double middleL,double middleW,double ringL,double ringW,double pinkyL,double pinkyW){
         SerializationUser loadOb = new SerializationUser();
-        List userArr = loadOb.deserialize("src/serialization/Users.ser");
+        List<User> userArr = loadOb.deserialize("src/serialization/Users.ser");
         
-        userArr.add(new User(usrName));
+        userArr.add(new User(usrName,thumbL,thumbW,indexL,indexW,middleL,middleW,ringL,ringW,pinkyL,pinkyW));
         
         System.out.println("Users :"+ userArr);
-        
+       
+       
         SerializationUser saveOb = new SerializationUser();
         saveOb.serialize(userArr,"src/serialization/Users.ser");
         System.out.println("done");
         
+        User.printUser(userArr.get(userArr.size()-1));
         
     }
     

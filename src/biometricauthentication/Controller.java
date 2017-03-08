@@ -11,10 +11,10 @@ package biometricauthentication;
  */
 public class Controller { 
     
-    public void signUp(String usrName){
+    public void signUp(String usrName,double thumbL,double thumbW,double indexL,double indexW,double middleL,double middleW,double ringL,double ringW,double pinkyL,double pinkyW){
         UserAuth userauth = new UserAuth();
         
-        userauth.UserSignUp(usrName);
+        userauth.UserSignUp(usrName,thumbL,thumbW,indexL,indexW,middleL,middleW,ringL,ringW,pinkyL,pinkyW);
     }
     
     public boolean signIn(String usrName){
