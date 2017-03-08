@@ -16,10 +16,10 @@ public class BiometricAuthentication {
 
     public static void main(String[] args) {
         
-        SignInWindow signUp = new SignInWindow();
-        signUp.setSize(420,330);
-        signUp.setVisible(true);
-        
+        SignInWindow signIn = new SignInWindow();
+        signIn.setSize(420,330);
+        signIn.setVisible(true);
+         
         
         
     }

@@ -96,7 +96,10 @@ public class SignInWindow extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (new Controller().signIn(usrNameTxt.getText())){
-            
+            LoggedIn welcomeWindow = new LoggedIn();
+            welcomeWindow.setSize(400,200);
+            welcomeWindow.setVisible(true);
+            this.dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

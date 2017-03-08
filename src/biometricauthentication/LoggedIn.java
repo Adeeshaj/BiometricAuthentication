@@ -16,7 +16,8 @@ public class LoggedIn extends javax.swing.JFrame {
      */
     public LoggedIn() {
         initComponents();
-        usrName.setText(null);
+        
+        usrName.setText(UserAuth.getCacheUser().getUserName());
     }
 
     /**

@@ -13,6 +13,8 @@ import java.util.List;
  * @author Adeesha
  */
 public class UserAuth {
+    private static User cacheUser;
+    
     public void UserSignUp(String usrName){
         ArrayCls arr = new ArrayCls();
         SerializationUser loadOb = new SerializationUser();
@@ -35,11 +37,17 @@ public class UserAuth {
         boolean islogged = false;
         for (User user:newList){
             if(user.getUserName().equals(usrName)){
+                cacheUser = user;
+                
                 System.out.println("Login Successful");
                 islogged = true;
             }
             
         }
         return islogged;
+    }
+    
+    public static User getCacheUser(){
+        return cacheUser;
     }
 }
