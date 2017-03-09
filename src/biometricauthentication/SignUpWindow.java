@@ -5,6 +5,8 @@
  */
 package biometricauthentication;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Adeesha
@@ -232,22 +234,33 @@ public class SignUpWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_usrNameTxtActionPerformed
 
     private void SignUpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SignUpBtnActionPerformed
-        Controller con = new Controller();
-        double thumbl = Double.parseDouble(thumbL.getText());
-        double thumbw = Double.parseDouble(thumbW.getText());
-        double indexl= Double.parseDouble(indexL.getText());
-        double indexw= Double.parseDouble(indexW.getText());
-        double middlel= Double.parseDouble(middleL.getText());
-        double middlew= Double.parseDouble(middleW.getText());
-        double ringl= Double.parseDouble(ringL.getText());
-        double ringw= Double.parseDouble(ringW.getText());
-        double pinkyl= Double.parseDouble(pinkyL.getText());
-        double pinkyw= Double.parseDouble(pinkyW.getText());
-        con.signUp(usrNameTxt.getText(),thumbl,thumbw,indexl,indexw,middlel,middlew,ringl,ringw,pinkyl,pinkyw);
-        SignInWindow signIn = new SignInWindow();
-        signIn.setSize(420,330);
-        signIn.setVisible(true);
-        this.dispose();
+        try{
+            Controller con = new Controller();
+            double thumbl = Double.parseDouble(thumbL.getText());
+            double thumbw = Double.parseDouble(thumbW.getText());
+            double indexl= Double.parseDouble(indexL.getText());
+            double indexw= Double.parseDouble(indexW.getText());
+            double middlel= Double.parseDouble(middleL.getText());
+            double middlew= Double.parseDouble(middleW.getText());
+            double ringl= Double.parseDouble(ringL.getText());
+            double ringw= Double.parseDouble(ringW.getText());
+            double pinkyl= Double.parseDouble(pinkyL.getText());
+            double pinkyw= Double.parseDouble(pinkyW.getText());
+            if(thumbl>0&&thumbw>0 && indexl>0 && indexw>0 && middlel>0 && middlew>0 && ringl>0 && ringw>0 && pinkyl>0 && pinkyw>0){
+                con.signUp(usrNameTxt.getText(),thumbl,thumbw,indexl,indexw,middlel,middlew,ringl,ringw,pinkyl,pinkyw);
+                SignInWindow signIn = new SignInWindow();
+                signIn.setSize(410,420);
+                signIn.setVisible(true);
+                this.dispose();
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Please Enter Valid Data");
+            }
+            
+        } catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all Text boxes");
+        }
+        
     }//GEN-LAST:event_SignUpBtnActionPerformed
 
     private void thumbLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_thumbLActionPerformed

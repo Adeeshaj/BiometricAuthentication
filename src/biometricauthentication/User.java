@@ -5,10 +5,7 @@
  */
 package biometricauthentication;
 
-import com.sun.corba.se.impl.orbutil.ObjectWriter;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *

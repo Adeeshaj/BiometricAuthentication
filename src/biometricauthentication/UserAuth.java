@@ -5,7 +5,6 @@
  */
 package biometricauthentication;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -36,30 +35,30 @@ public class UserAuth {
         SerializationUser loadOb = new SerializationUser();
         List<User> newList = loadOb.deserialize("src/serialization/Users.ser");
         int flag = 0;
+        double error = 2.0;
         boolean islogged = false;
         for (User user:newList){
             if(user.getUserName().equals(usrName)){
                 System.out.println(user.getUserName());
                 switch (fing1) {
                     case "thumb":
-                        if(user.getThumbLength() == fing1L && user.getThumbWidth() == fing1W){
+                        if(user.getThumbLength()+ error > fing1L && user.getThumbLength() - error < fing1L && user.getThumbWidth() + error > fing1W && user.getThumbWidth() - error < fing1W){
                             flag += 1;
                         }   break;
                     case "Index finger":
-                        
-                        if(user.getIndexFingerLength() == fing1L && user.getIndexFingerWidth()==fing1W){
+                        if((user.getIndexFingerLength() + error) > fing1L && (user.getIndexFingerLength() - error) < fing1L && (user.getIndexFingerWidth()+ error >fing1W) && (user.getIndexFingerWidth() - error) <fing1W){
                             flag += 1;
                         }   break;
                     case "middle finger":
-                        if(user.getMiddleFingerLength() == fing1L && user.getMiddleFingerWidth()== fing1W){
+                        if((user.getMiddleFingerLength() + error) > fing1L && (user.getMiddleFingerLength() - error) < fing1L && (user.getMiddleFingerWidth()+error) > fing1W && (user.getMiddleFingerWidth()-error)<fing1W){
                             flag += 1;
                         }   break;
                     case "ring finger":
-                        if(user.getRingFingerLength() == fing1L && user.getRingFingerWidth() == fing1W){
+                        if((user.getRingFingerLength() + error) > fing1L && (user.getRingFingerLength() - error) < fing1L && (user.getRingFingerWidth() +error)> fing1W && (user.getRingFingerWidth()-error)< fing1W){
                             flag += 1;
                     }   break;
                     case "pinky":
-                        if(user.getPinkyLength() == fing1L && user.getPinkyWidth() == fing1W){
+                        if((user.getPinkyLength()+error) > fing1L && (user.getPinkyLength()-error) < fing1L && (user.getPinkyWidth()+error)>fing1W && (user.getPinkyWidth()-error)<fing1W){
                             flag += 1;
                     }   break;
                 }
@@ -67,24 +66,23 @@ public class UserAuth {
                 
                 switch (fing2) {
                     case "thumb":
-                        if(user.getThumbLength() == fing2L && user.getThumbWidth() == fing2W){
+                        if(user.getThumbLength()+ error > fing2L && user.getThumbLength() - error < fing2L && user.getThumbWidth() + error > fing2W && user.getThumbWidth() - error < fing2W){
                             flag += 1;
                         }   break;
                     case "Index finger":
-                        
-                        if(user.getIndexFingerLength() == fing2L && user.getIndexFingerWidth()==fing2W){
+                        if((user.getIndexFingerLength() + error) > fing2L && (user.getIndexFingerLength() - error) < fing2L && (user.getIndexFingerWidth()+ error >fing2W) && (user.getIndexFingerWidth() - error) <fing2W){
                             flag += 1;
                         }   break;
                     case "middle finger":
-                        if(user.getMiddleFingerLength() == fing2L && user.getMiddleFingerWidth()== fing2W){
+                        if((user.getMiddleFingerLength() + error) > fing2L && (user.getMiddleFingerLength() - error) < fing2L && (user.getMiddleFingerWidth()+error) > fing2W && (user.getMiddleFingerWidth()-error)<fing2W){
                             flag += 1;
                         }   break;
                     case "ring finger":
-                        if(user.getRingFingerLength() == fing2L && user.getRingFingerWidth() == fing2W){
+                        if((user.getRingFingerLength() + error) > fing2L && (user.getRingFingerLength() - error) < fing2L && (user.getRingFingerWidth() +error)> fing2W && (user.getRingFingerWidth()-error)< fing2W){
                             flag += 1;
                     }   break;
                     case "pinky":
-                        if(user.getPinkyLength() == fing2L && user.getPinkyWidth() == fing2W){
+                        if((user.getPinkyLength()+error) > fing2L && (user.getPinkyLength()-error) < fing2L && (user.getPinkyWidth()+error)>fing2W && (user.getPinkyWidth()-error)<fing2W){
                             flag += 1;
                     }   break;
                 }

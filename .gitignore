@@ -1,1 +1,4 @@
 /dist/
+nbproject/project.xml
+*.class
+*.xml

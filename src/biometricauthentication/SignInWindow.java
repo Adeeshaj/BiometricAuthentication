@@ -9,6 +9,7 @@ import java.awt.List;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -174,10 +175,11 @@ public class SignInWindow extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(finger1L))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(fing1WTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
-                    .addComponent(finger1W))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(fing1WTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(finger1W)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fing2LTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -201,15 +203,28 @@ public class SignInWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (new Controller().signIn(usrNameTxt.getText(),Double.parseDouble(fing1LTxt.getText()),Double.parseDouble(fing1WTxt.getText()),Double.parseDouble(fing2LTxt.getText()),Double.parseDouble(fing2WTxt.getText()),fingers[f1-1],fingers[f2])){
-            LoggedIn welcomeWindow = new LoggedIn();
-            welcomeWindow.setSize(400,200);
-            welcomeWindow.setVisible(true);
-            this.dispose();
+        try{
+            if(Double.parseDouble(fing1LTxt.getText())>0 && Double.parseDouble(fing1WTxt.getText())>0 && Double.parseDouble(fing2LTxt.getText())>0 && Double.parseDouble(fing2WTxt.getText())>0){
+                if (new Controller().signIn(usrNameTxt.getText(),Double.parseDouble(fing1LTxt.getText()),Double.parseDouble(fing1WTxt.getText()),Double.parseDouble(fing2LTxt.getText()),Double.parseDouble(fing2WTxt.getText()),fingers[f1-1],fingers[f2])){
+                LoggedIn welcomeWindow = new LoggedIn();
+                welcomeWindow.setSize(400,200);
+                welcomeWindow.setVisible(true);
+                this.dispose();
+            }
+                else{
+                JOptionPane.showMessageDialog(null,"User name and entered details not matched. please Try again");
+                }
+            
+            
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Please Enter Valid Data");
+            }
+        
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(null, "Entered data is not valid");
         }
-        else{
-            System.out.println("Wrong");
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
